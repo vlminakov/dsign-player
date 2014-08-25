@@ -123,7 +123,7 @@ public class Main extends Application implements IUpdateServiceDelegate {
 				sheduler = new Sheduler();
 //				sheduler.addResource(Resource.getLogoResources(0));
 				new JsonParser(Path.JSON_URL, sheduler);
-				//FileLoader.startLoading(sheduler.getResources());
+				FileLoader.startLoading(sheduler.getResources());
 			}
 		}, this);
 	}

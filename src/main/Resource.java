@@ -28,6 +28,8 @@ public class Resource {
 	private long				count;
 	private byte				type;
 	private String				id;
+	private long				mediaStartTime;
+	private long 				duration;
 
 	public Resource(String path, long count) {
 		setPath(path);
@@ -37,6 +39,7 @@ public class Resource {
 		} else {
 			setCount(1);
 		}
+		setDuration(count * 1000);
 	}
 
 	public Resource(Resource resource) {
@@ -44,6 +47,7 @@ public class Resource {
 		setCount(resource.getCount());
 		setType(resource.getType());
 		setId(resource.getId());
+		setDuration(resource.getCount() * 1000);
 	}
 
 	public static Resource getLogoResources(long timeToStart) {
@@ -51,6 +55,14 @@ public class Resource {
 		resource.setId(LOGO_ID);
 		resource.setName("logo");
 		return resource;
+	}
+
+	public long getDuration() {
+		return duration;
+	}
+
+	public void setDuration(long duration) {
+		this.duration = Math.max(0, duration);
 	}
 
 	public String getPath() {
@@ -113,5 +125,13 @@ public class Resource {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public long getMediaStartTime() {
+		return mediaStartTime;
+	}
+
+	public void setMediaStartTime(long mediaStartTime) {
+		this.mediaStartTime = mediaStartTime;
 	}
 }

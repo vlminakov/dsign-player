@@ -22,8 +22,10 @@ public class UpdateService extends Thread {
 		while (isStart()) {
 			checkTime();
 			try {
-				long timeToSleep = 3600000; //1 hour
-				timeToSleep -= Calendar.getInstance().get(Calendar.MINUTE) * 60;
+				//long timeToSleep = 3600000; //1 hour
+				long timeToSleep = 60000;
+//				timeToSleep -= Calendar.getInstance().get(Calendar.MINUTE) * 60;
+				timeToSleep -= Calendar.getInstance().get(Calendar.MINUTE) * 1;
 				Thread.sleep(timeToSleep); // sleep 1 hour - count of current minute
 			} catch (InterruptedException e) {
 				e.printStackTrace();
@@ -34,7 +36,8 @@ public class UpdateService extends Thread {
 	private void checkTime() {
 		int hours = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
 		if (hours >= 0 && hours < 6) {
-			FileLoader.startLoading(delegate.getResources());
+			getRunnable().run();
+			//FileLoader.startLoading(delegate.getResources());
 		}
 	}
 

@@ -20,8 +20,10 @@ public class FileLoader implements Path {
 					FtpCore ftpEngine = new FtpCore(HttpConstants.FTP_HOST_NAME);
 					//synchronized (resources) {
 						for (Resource resource : resources) {
-							if (resource.getName().equals("logo"))
+							if (resource.getName().equals("logo")){
+								System.out.println("the first element is logo! no need to download...");
 								continue;
+							}
 							System.out.println("trying to download file - "
 									+ resource.getName());
 							File file = new File("/home/player/media/"
