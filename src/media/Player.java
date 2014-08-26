@@ -63,7 +63,7 @@ public abstract class Player {
 					}
 					HttpCore http = new HttpCore();
 					SimpleDateFormat sdf_d = new SimpleDateFormat("dd.MM.yyyy");
-					SimpleDateFormat sdf_t = new SimpleDateFormat("hh:mm:ss");
+					SimpleDateFormat sdf_t = new SimpleDateFormat("HH:mm:ss");
 					Date date = new Date(System.currentTimeMillis());
 					String d = sdf_d.format(date);
 					String t = sdf_t.format(date);
