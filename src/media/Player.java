@@ -38,6 +38,9 @@ public abstract class Player {
 	public abstract void onEndFile(Node view);
 	
 	public Player(Resource resource) {
+		if (resource == null){
+			resource = Resource.getLogoResources(1000);
+		}
 		System.out.println("plauer constructor:  --  " + resource.getName());
 		playNext(resource);
 	}
